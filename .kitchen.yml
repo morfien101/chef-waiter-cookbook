@@ -1,0 +1,50 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  #require_chef_omnibus: latest
+  require_chef_omnibus: 14.4.56
+  #require_chef_omnibus: 12.9.41
+
+platforms:
+  - name: ubuntu-18.04
+  - name: centos-6
+  - name: centos-7
+  - name: amazonlinux
+    driver_config:
+      box: mvbcoding/awslinux
+  - name: windows-2012r2
+    os_type: windows
+    transport:
+      name: winrm
+    driver:
+      gui: true
+      box: devopsgroup-io/windows_server-2012r2-standard-amd64-nocm
+      customize:
+        vram: 64
+
+suites:
+- name: linux
+  excludes: 
+  - windows-2012r2
+  run_list: 
+  - recipe[chef-waiter]
+  attributes:
+    chef-waiter:
+      remove: false
+      feature:
+          enabled: true
+          deploy_config_file: true
+
+- name: windows
+  includes:
+  - windows-2012r2
+  run_list: ["recipe[chef-waiter]"]
+  attributes:
+    chef-waiter:
+      remove: false
+      feature:
+          enabled: true
+          deploy_config_file: true
