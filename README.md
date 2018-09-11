@@ -6,7 +6,7 @@ This cookbook will install and configure the Chef waiter service on both windows
 
 The chef-waiter service is a wrapper around chef that will add an API to the chef client to allow runs and reporting.
 
-See [Chef Waiter on GitHub]("https://github.com/morfien101/chef-waiter") for more details.
+See [Chef Waiter on GitHub](https://github.com/morfien101/chef-waiter) for more details.
 
 ![penguin waiter](./README/waiter_T.png "penguin waiter")
 
