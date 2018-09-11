@@ -56,6 +56,29 @@ action :remove_scheduled_upgrade do
   end if os? 'windows'
 end
 
+action :schedule_uninstall do
+  # We need to trigger an upgrade process
+  if os?('windows')
+    # Windows needs a schedualed task
+    windows_task 'remove_chefwaiter' do
+      action [:delete, :create]
+      run_level :highest
+      frequency :once
+      start_time((Time.now + (5 * 60)).strftime('%H:%M'))
+      command %(chef-client -o 'recipe[chef-waiter::remove_chef_waiter]')
+      only_if { ::Chefwaiter.update_required? }
+    end
+  else
+    # Linux needs AT to be installed.
+    install_at
+    execute 'remove chefwaiter' do
+      command %(echo "#{which_chefclient} -o 'recipe[chef-waiter::remove_chef_waiter]'" | #{which_at} now + #{new_resource.minutes_from_now} minutes )
+      action :run
+      only_if { ::Chefwaiter.update_required? }
+    end
+  end
+end
+
 action_class do
   def install_at
     package 'at'

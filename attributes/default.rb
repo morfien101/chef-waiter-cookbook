@@ -26,7 +26,9 @@ if node['os'] == 'windows'
 end
 
 default['chef-waiter']['feature']['enabled'] = false
+default['chef-waiter']['feature']['manage_firewall'] = true
 default['chef-waiter']['feature']['deploy_config_file'] = false
+
 default['chef-waiter']['config_file']['state_table_size'] = 40
 default['chef-waiter']['config_file']['periodic_chef_runs'] = true
 default['chef-waiter']['config_file']['run_interval'] = 30

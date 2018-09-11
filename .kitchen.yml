@@ -24,6 +24,7 @@ platforms:
       box: devopsgroup-io/windows_server-2012r2-standard-amd64-nocm
       customize:
         vram: 64
+      communicator: winrm
 
 suites:
 - name: linux

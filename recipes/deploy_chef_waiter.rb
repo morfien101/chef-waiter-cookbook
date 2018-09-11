@@ -22,6 +22,7 @@ end
 
 zipfile "#{node['chef-waiter']['download_directory']}/#{::Chefwaiter.compressed_file_name}" do
   action :nothing
+  into node['chef-waiter']['download_directory']
 end
 
 execute 'extract_chef_waiter' do
@@ -31,9 +32,11 @@ end
 
 remote_file ::Chefwaiter.binary_location do
   source "file://#{node['chef-waiter']['download_directory']}/#{::Chefwaiter.directory_name}/#{::Chefwaiter.binary_name}"
-  owner 'root'
-  group 'root'
-  mode '0755'
+  unless os? 'windows'
+    owner 'root'
+    group 'root'
+    mode '0755'
+  end
   action :nothing
 end
 

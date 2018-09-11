@@ -21,16 +21,6 @@ file ::Chefwaiter.binary_location do
   action :delete
 end
 
-## Windows needs this
-#windows_firewall 'chef_waiter' do
-#  action :delete
-#end if os? 'windows'
-
-# Everything else we support uses iptables.
-iptables_rule 'port_chefwaiter' do
-  action :disable
-end unless os? 'windows'
-
 # Remove the configuration directory if it was deployed.
 directory node['chef-waiter']['config_dir'] do
   recursive true
