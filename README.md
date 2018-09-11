@@ -94,3 +94,7 @@ The cookbook tested to support the following OSs.
 * Ubuntu 18.04
 
 It could work on other OSs but has not been tested.
+
+## Contributing
+
+Fork, Change, Test and submit PR.
