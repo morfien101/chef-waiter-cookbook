@@ -8,13 +8,18 @@ default['chef-waiter']['version'] = '1.0.15'
 default['chef-waiter']['travis_build'] = 38
 default['chef-waiter']['url_base'] = 'https://github.com/morfien101/chef-waiter/releases/download'
 
+# Feaute toggles
+default['chef-waiter']['feature']['enabled'] = false
+default['chef-waiter']['feature']['manage_firewall'] = true
+default['chef-waiter']['feature']['deploy_config_file'] = false
 default['chef-waiter']['remove'] = false
-default['chef-waiter']['exec_name'] = 'chef-waiter'
 
+# path values
 default['chef-waiter']['config_dir'] = '/etc/chefwaiter'
 default['chef-waiter']['binary_path'] = '/usr/local/bin'
 default['chef-waiter']['logs_path'] = '/var/log/chefwaiter'
 default['chef-waiter']['download_directory'] = '/tmp'
+default['chef-waiter']['exec_name'] = 'chef-waiter'
 
 # reset these if the OS is windows
 if node['os'] == 'windows'
@@ -25,10 +30,7 @@ if node['os'] == 'windows'
   default['chef-waiter']['exec_name'] = 'chef-waiter.exe'
 end
 
-default['chef-waiter']['feature']['enabled'] = false
-default['chef-waiter']['feature']['manage_firewall'] = true
-default['chef-waiter']['feature']['deploy_config_file'] = false
-
+# Configuration file
 default['chef-waiter']['config_file']['state_table_size'] = 40
 default['chef-waiter']['config_file']['periodic_chef_runs'] = true
 default['chef-waiter']['config_file']['run_interval'] = 30
