@@ -14,3 +14,7 @@ else
   # Else just go ahead and deploy the binary
   include_recipe 'chef-waiter::deploy_chef_waiter'
 end
+
+file "#{node['chef-waiter']['download_directory']}/#{::Chefwaiter.compressed_file_name}" do
+  action :delete
+end

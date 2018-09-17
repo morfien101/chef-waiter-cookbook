@@ -8,10 +8,6 @@ directory node['chef-waiter']['binary_path'] do
   action :create
 end
 
-file ::Chefwaiter.compressed_file_name do
-  action :nothing
-end
-
 directory node['chef-waiter']['download_directory']
 
 # Empty resources that will be triggered after download
@@ -51,7 +47,7 @@ remote_file "#{node['chef-waiter']['download_directory']}/#{::Chefwaiter.compres
   notifies :create, "remote_file[#{::Chefwaiter.binary_location}]", :immediately
 
   # Clean up after ourselves
-  notifies :delete, "file[#{::Chefwaiter.compressed_file_name}]", :delayed
+  notifies :delete, "file[#{node['chef-waiter']['download_directory']}/#{::Chefwaiter.compressed_file_name}]", :delayed
   notifies :delete, "directory[#{node['chef-waiter']['download_directory']}/#{::Chefwaiter.directory_name}]"
 end
 

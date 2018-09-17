@@ -4,7 +4,7 @@ DEPENDENCIES
     metadata: true
 
 GRAPH
-  chef-waiter (1.0.1)
+  chef-waiter (1.1.0)
     iptables (>= 0.0.0)
     windows (>= 0.0.0)
     windows_firewall (>= 0.0.0)
