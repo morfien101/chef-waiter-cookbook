@@ -9,14 +9,16 @@ version '1.1.0'
 source_url 'https://github.com/morfien101/chef-waiter-cookbook' if respond_to?(:source_url)
 issues_url 'https://github.com/morfien101/chef-waiter-cookbook/issues' if respond_to?(:issues_url)
 # This is the lowest version that I have tested it on.
-chef_version '=> 12.9.41'
+chef_version '>= 12.9.41'
 
 # Very likely to support many more but this is what I have tested it with
 supports 'ubuntu', '~> 18.04'
-supports 'centos', '~> 6'
-supports 'centos', '~> 7'
+supports 'centos', '~> 6.0'
+supports 'centos', '~> 7.0'
 supports 'amazon'
-supports 'windows', '=> 2012'
+
+# Tested with windows 2012R2 very likely to support more
+supports 'windows'
 
 depends 'iptables'
 depends 'zipfile', '~> 0.2.0'
