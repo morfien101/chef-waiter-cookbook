@@ -8,7 +8,7 @@ The chef-waiter service is a wrapper around chef that will add an API to the che
 
 See [Chef Waiter on GitHub](https://github.com/morfien101/chef-waiter) for more details.
 
-![penguin waiter](./README/waiter_T.png "penguin waiter")
+![penguin waiter](https://github.com/morfien101/chef-waiter-cookbook/raw/master/README/waiter_T.png "penguin waiter")
 
 ## How to use the cookbook
 

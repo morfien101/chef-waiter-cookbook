@@ -3,12 +3,17 @@ chef-waiter CHANGELOG
 
 This file is used to list changes made in each version of the chef-waiter cookbook.
 
-1.0.1
+1.1.1
 -------
 
-Inital public verion
+Changed the readme structure as minimart tries to read a directory called README as the readme file.
 
 1.1.0
 -------
 
 Adding in better support for windows and updating the metadata file
+
+1.0.1
+-------
+
+Inital public verion
