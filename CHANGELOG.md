@@ -3,6 +3,11 @@ chef-waiter CHANGELOG
 
 This file is used to list changes made in each version of the chef-waiter cookbook.
 
+1.1.2
+-------
+
+Updated the which_at and which_chefclient to be more os indepentdent.
+
 1.1.1
 -------
 

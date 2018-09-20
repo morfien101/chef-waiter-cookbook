@@ -8,11 +8,17 @@ def centos_7?
 end
 
 def which_at
-  centos_7? ? '/bin/at' : '/usr/bin/at'
+  return '/bin/at' if ::File.exist?('/bin/at')
+  return '/usr/bin/at' if ::File.exist?('/usr/bin/at')
+  # Don't know where it is hope for a PATH env
+  'at'
 end
 
 def which_chefclient
-  centos_7? ? '/bin/chef-client' : '/usr/bin/chef-client'
+  return '/bin/chef-client' if ::File.exist?('/bin/chef-client')
+  return '/usr/bin/chef-client' if ::File.exist?('/usr/bin/chef-client')
+  # Don't know where it is hope for a PATH env
+  'chef-client'
 end
 
 module Chefwaiter
