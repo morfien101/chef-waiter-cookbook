@@ -2,14 +2,15 @@ DEPENDENCIES
   chef-waiter
     path: .
     metadata: true
+  iptables
 
 GRAPH
-  chef-waiter (1.1.0)
+  chef-waiter (1.2.0)
     iptables (>= 0.0.0)
     windows (>= 0.0.0)
     windows_firewall (>= 0.0.0)
     zipfile (~> 0.2.0)
-  iptables (4.3.4)
+  iptables (4.4.1)
   windows (5.1.1)
   windows_firewall (4.0.2)
   zipfile (0.2.0)

@@ -103,7 +103,7 @@ module Chefwaiter
 
     # Chef 12 and 13 users will still use to the old code.
     # In chef 14 it ShellOut was remove.
-    cmd = chef_version < '14' ? ::Chef::Mixin::ShellOut.shell_out(cmdstr) : ::Chef::Mixin::ShellOut.shell_out_command(cmdstr)
+    cmd = chef_version < '14' ? ::Chef::Mixlib::ShellOut.new(cmdstr).run_command : ::Chef::Mixin::ShellOut.shell_out_command(cmdstr)
     cmd.stdout.chomp
   end
 
