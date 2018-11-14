@@ -2,11 +2,15 @@ chef-waiter CHANGELOG
 =========================
 
 This file is used to list changes made in each version of the chef-waiter cookbook.
+1.3.1
+-------
+
+Bumped the version of chef waiter that gets installed.
 
 1.3.0
 -------
 
-Changed install_chef_waiter to delete it delete the chef waiter install file at the start of the run. This is to prevent situations where failed downloads cause servers to not have chef waiter installed.
+Changed install_chef_waiter to delete the chef waiter install file at the start of the run. This is to prevent situations where failed downloads cause servers to not have chef waiter installed.
 
 1.1.2
 -------
