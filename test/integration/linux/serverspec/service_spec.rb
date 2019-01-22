@@ -15,7 +15,8 @@ end if upstart_platform?
 
 describe file('/etc/chefwaiter/config.json') do
   it { should be_file }
-  its(:content) { should match /"state_table_size": 40,/ }
+  its(:content) { should match /"state_table_size": 40/ }
+  its(:content) { should match /"metrics_enabled": true/ }
 end
 
 describe command('curl localhost:8901/status') {

@@ -1,8 +1,1 @@
-{
-    "state_table_size": <%= @state_table_size %>,
-    "periodic_chef_runs": <%= @periodic_chef_runs %>,
-    "run_interval": <%= @run_interval %>,
-    "debug": <%= @debug %>,
-    "logs_location": "<%= @logs_location %>",
-    "state_location": "<%= @state_location %>"
-}
+<%= JSON.pretty_generate(@configuration_settings) %>

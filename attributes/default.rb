@@ -4,8 +4,10 @@
 #
 
 # Open source values
-default['chef-waiter']['version'] = '1.1.2'
-default['chef-waiter']['travis_build'] = 42
+
+default['chef-waiter']['version'] = '1.2.2'
+default['chef-waiter']['travis_build'] = 47
+
 default['chef-waiter']['url_base'] = 'https://github.com/morfien101/chef-waiter/releases/download'
 
 # Feaute toggles
@@ -37,3 +39,4 @@ default['chef-waiter']['config_file']['run_interval'] = 30
 default['chef-waiter']['config_file']['debug'] = false
 default['chef-waiter']['config_file']['logs_location'] = node['chef-waiter']['logs_path']
 default['chef-waiter']['config_file']['state_location'] = node['chef-waiter']['binary_path']
+default['chef-waiter']['config_file']['metrics_enabled'] = true

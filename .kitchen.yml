@@ -5,8 +5,6 @@ driver:
 provisioner:
   name: chef_zero
   require_chef_omnibus: latest
-  #require_chef_omnibus: 14.4.56
-  #require_chef_omnibus: 12.9.41
 
 platforms:
   - name: ubuntu-18.04
