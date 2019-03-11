@@ -5,8 +5,8 @@
 
 # Open source values
 
-default['chef-waiter']['version'] = '1.2.6'
-default['chef-waiter']['travis_build'] = 54
+default['chef-waiter']['version'] = '1.2.7'
+default['chef-waiter']['travis_build'] = 55
 
 default['chef-waiter']['url_base'] = 'https://github.com/morfien101/chef-waiter/releases/download'
 
