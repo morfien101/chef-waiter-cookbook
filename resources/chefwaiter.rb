@@ -25,6 +25,12 @@ action :schedule_restart do
   end
 end
 
+action :remove_scheduled_restart do
+  windows_task 'restart_chefwaiter' do
+    action :delete
+  end if os? 'windows'
+end
+
 action :schedule_upgrade do
   # We need to trigger an upgrade process
   if os?('windows')

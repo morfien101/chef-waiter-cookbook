@@ -8,10 +8,14 @@
 # process for chef will be lost causing the chef waiter process to be left off.
 # This means we need to run chef directly. This recipe is to be used by either windows
 # tasks or the linux at deamon.
+chefwaiter 'remove_restart_task' do
+  action :nothing
+end
 
 service 'chefwaiter' do
   action :restart
   supports status: true
+  notifies :remove_scheduled_restart, 'chefwaiter[remove_restart_task]'
   provider ::Chefwaiter.service_provider if ::Chefwaiter.override_service_provider?
   only_if { ::Chefwaiter.service_installed? }
 end
