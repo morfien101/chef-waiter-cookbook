@@ -5,6 +5,8 @@ driver:
 provisioner:
   name: chef_zero
   require_chef_omnibus: latest
+  client_rb:
+    chef_license: accept
 
 platforms:
   - name: ubuntu-18.04
@@ -18,7 +20,7 @@ platforms:
     transport:
       name: winrm
     driver:
-      gui: true
+      gui: fasle
       box: devopsgroup-io/windows_server-2012r2-standard-amd64-nocm
       customize:
         vram: 64

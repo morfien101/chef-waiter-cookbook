@@ -2,6 +2,13 @@ chef-waiter CHANGELOG
 =========================
 
 This file is used to list changes made in each version of the chef-waiter cookbook.
+
+1.5.0
+-------
+
+Bumped the version of chef waiter that gets installed.
+Changed to no longer require the travis build number.
+
 1.3.1
 -------
 

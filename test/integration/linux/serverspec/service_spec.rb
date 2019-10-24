@@ -6,7 +6,7 @@ describe service('chefwaiter') do
 end unless upstart_platform?
 
 describe command('cat /etc/init/chefwaiter.conf') do
-  its(:stdout) { should match /start on stopped rc/ }
+  its(:stdout) { should match /stopped rc/ }
 end if upstart_platform?
 
 describe command('sudo status chefwaiter') do
