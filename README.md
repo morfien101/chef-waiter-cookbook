@@ -8,8 +8,6 @@ The chef-waiter service is a wrapper around chef that will add an API to the che
 
 See [Chef Waiter on GitHub](https://github.com/morfien101/chef-waiter) for more details.
 
-![penguin waiter](https://github.com/morfien101/chef-waiter-cookbook/raw/master/README/waiter_T.png "penguin waiter")
-
 ## How to use the cookbook
 
 1. Set the version of chef waiter to be installed in your environment files.
@@ -23,14 +21,13 @@ See below for attributes.
 
 ### Downloading Chef Waiter
 
-Chef waiter is downloaded from Github releases. It is also built using travis. This requies this cookbook to constract the URL when downloading with the version and build number.
+Chef waiter is downloaded from Github releases.
 
 These attributes do this.
 
 | Attribute | Type | Example value |
 ---|---|---
 `node['chef-waiter']['version']` | String | "1.0.15"
-`node['chef-waiter']['travis_build']` | Integer | 38
 `node['chef-waiter']['url_base']` | String | This is the git releases page. Change only if you fork the project.
 
 ### Feature toggles

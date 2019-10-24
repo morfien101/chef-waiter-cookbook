@@ -84,7 +84,6 @@ module Chefwaiter
   def self.download_link
     link = ::Chef.node['chef-waiter']['url_base']
     link += "/v#{::Chef.node['chef-waiter']['version']}"
-    link += "%2Btravis#{::Chef.node['chef-waiter']['travis_build']}"
     link += "/#{compressed_file_name}"
     link
   end
