@@ -85,7 +85,7 @@ module Chefwaiter
     return '' unless executable_available? && service_installed?
     cmdstr = "\"#{binary_location}\" -v"
 
-    if ::Chef.const_defined?(:Mixin) && ::Chef::Mixin::ShellOut.method_defined?('shell_out_command')
+    if ::Chef.const_defined?(:Mixin) && ::Chef::Mixin.const_defined?(:ShellOut) && ::Chef::Mixin::ShellOut.method_defined?('shell_out_command')
       cmd = ::Chef::Mixin::ShellOut.shell_out_command(cmdstr)
     else
       cmd = ::Mixlib::ShellOut.new(cmdstr).run_command
