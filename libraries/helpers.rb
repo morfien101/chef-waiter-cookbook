@@ -28,21 +28,6 @@ module Chefwaiter
     ::Chef.node['os'] == name
   end
 
-  def self.chef_version
-    # chef on windows has a different name than linux.
-    if os? 'windows'
-      chef_package = ::Chef.node['packages'].select do |pkg_name|
-        pkg_name =~ /[Cc]hef/
-      end
-      # We get back an array with a name that we don't know as it
-      # has the version number in it.
-      # Therefore we need to pull whatever we got out and use that.
-      return chef_package[chef_package.keys.first]['version']
-    end
-
-    ::Chef.node['packages']['chef']['version']
-  end
-
   # These platforms require upstart to run chef-waiter
   def self.upstart_platforms?
     return true if ::Chef.node['platform'] == 'amazon'
@@ -100,9 +85,12 @@ module Chefwaiter
     return '' unless executable_available? && service_installed?
     cmdstr = "\"#{binary_location}\" -v"
 
-    # Chef 12 and 13 users will still use to the old code.
-    # In chef 14 it ShellOut was remove.
-    cmd = chef_version < '14' ? ::Chef::Mixlib::ShellOut.new(cmdstr).run_command : ::Chef::Mixin::ShellOut.shell_out_command(cmdstr)
+    if ::Chef.const_defined?(:Mixin) && ::Chef::Mixin::ShellOut.method_defined?('shell_out_command')
+      cmd = ::Chef::Mixin::ShellOut.shell_out_command(cmdstr)
+    else
+      cmd = ::Mixlib::ShellOut.new(cmdstr).run_command
+    end
+
     cmd.stdout.chomp
   end
 
